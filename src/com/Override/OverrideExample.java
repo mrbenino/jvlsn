@@ -1,20 +1,25 @@
 package com.Override;
 
+import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
+
+import java.io.IOException;
+
 class Parent{
-    int method(){
+    protected int method(){// throws RuntimeException эксептион не помешает оверрайду
         return 1;
-    }
+    }//static не возможно перегрузить он будет отдельным для каждого класса
 }
 
 class Child extends Parent{
     @Override
-    int method(){
+    public int method(){// throws Exception сужать ексепшены мы не можем
+        //переопределеный метод должен быть с возвращаемым значением оригинала int поменять тут на double нельзя*
         return 2;
-    }
+    }//protected или default можно расширять, не которые модификаторы такие как synchronized а второй втоже время strictfp
 }
 
 public class OverrideExample {
-    public static void main(String[] args) {
+    public static void main(String[] args){//тут будет использоваться полиморфизм для переопределения метода
         Parent parent = new Parent();
         Parent child = new Child();
 
