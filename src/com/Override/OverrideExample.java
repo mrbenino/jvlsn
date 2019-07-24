@@ -1,9 +1,5 @@
 package com.Override;
 
-import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
-
-import java.io.IOException;
-
 class Parent{
     protected int method(){// throws RuntimeException эксептион не помешает оверрайду
         return 1;
